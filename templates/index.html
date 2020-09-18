@@ -1,10 +1,25 @@
 <html lang="en" style="background-color: black;">
-    <link rel="stylesheet" media="screen" href="static/style.css">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='pokecon.ico') }}">
+<link rel="stylesheet" media="screen" href="static/style.css">
+<link rel="shortcut icon" href="{{ url_for('static', filename='pokecon.ico') }}">
+
 <head>
     <title>Pokedex</title>
 </head>
 <img src="static/images/Pokedex_logo.png" alt="Logo" class="center">
-<img src="static/images/pikachu.png" alt="pika" class="left" width="500" height="350">
-<div style="text-align: right;"><img src="static/images/Ash.png" alt="Ash" width="250" height="500"></div>
+<form style="align-items: center;" method="POST" action="{{ url_for('index') }}">
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+    <h1 style="color: white;">{{ form.pokemon.label }}</h1>
+        <h1>{{ form.pokemon }}</h1>
+    <ul style="color: red;">
+        {% for error in form.pokemon.errors %}
+        <h2><b>{{error}}</b></h2>
+        {% endfor %}
+    </ul>
+    <input class="button" style="text-align: center;" type="submit" value='Submit'>
+</form>
+</form>
+<div><img src="static/images/pikachu.png" alt="pika" class="left" width="500" height="350"></div>
+<img src="static/images/Ash.png" alt="Ash" class="topright">
+
 </html>
