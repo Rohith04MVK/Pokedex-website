@@ -9,7 +9,7 @@
 <form style="align-items: center;" method="POST" action="{{ url_for('index') }}">
     {{ form.hidden_tag() }}
     {{ form.csrf_token }}
-    <h1 style="color: rgb(235, 8, 8);">{{ form.pokemon.label }}</h1>
+    <h1 style="color: blue;">{{ form.pokemon.label }}</h1>
         <h1>{{ form.pokemon }}</h1>
     <ul style="color: red;">
         {% for error in form.pokemon.errors %}

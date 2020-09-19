@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, ValidationError, InputRequired
 import requests
 
 
-class Main_form(FlaskForm):
+class pokemon_form(FlaskForm):
     pokemon = StringField('Pokemon',
                           validators=[InputRequired()])
 
@@ -17,7 +17,7 @@ app.config['SECRET_KEY'] = '*9cnv8to4#64l5mvn8afb2owqldv4!26t4u'
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    form = Main_form()
+    form = pokemon_form()
     print(form.pokemon.data)
     return render_template('index.html', form=form)
 
