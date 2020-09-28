@@ -5,7 +5,7 @@
 <head>
     <title>Pokedex</title>
 </head>
-<div class="center"><img src="static/images/Pokedex_logo.png" alt="Logo" class="center"></div>
+<img src="static/images/Pokedex_logo.png" alt="Logo" class="center" />
 <form style="align-items: center;" method="POST" action="{{ url_for('index') }}">
     {{ form.hidden_tag() }}
     {{ form.csrf_token }}
