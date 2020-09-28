@@ -1,11 +1,11 @@
 <html lang="en" style="background-image: linear-gradient(to bottom right, #00008B, black);">
-<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css')}}" />
 <link rel="shortcut icon" href="{{ url_for('static', filename='pokecon.ico') }}">
 
 <head>
     <title>Pokedex</title>
 </head>
-<img src="static/images/Pokedex_logo.png" alt="Logo" class="center" />
+<div style="text-align: center;"><img src="static/images/Pokedex_logo.png" alt="Logo" /></div>
 <form style="align-items: center;" method="POST" action="{{ url_for('index') }}">
     {{ form.hidden_tag() }}
     {{ form.csrf_token }}

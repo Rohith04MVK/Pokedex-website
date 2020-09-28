@@ -3,7 +3,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 300%;
+    width: auto;
   }
 .left{
     display: block;
@@ -45,3 +45,17 @@
     position: relative;
   }
   
+.box {
+  background-image: linear-gradient(to bottom right, purple, blue);
+  font-size: 40px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  width: 320px;
+  height: 320px;
+  padding: 20px;
+  border: 20px solid black;
+  margin: 0;
+}  
+
+.bruh{
+  color: black;
+}

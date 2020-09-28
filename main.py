@@ -1,4 +1,3 @@
-from os import name
 from flask import Flask, url_for, redirect
 from flask.templating import render_template
 from flask_wtf import FlaskForm
@@ -44,6 +43,7 @@ def get_stats():
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '2fex6bw*mt03ocad82q1loylh68#kik7!'
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 
 class pokemon_form(FlaskForm):
