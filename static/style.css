@@ -52,10 +52,11 @@
   width: 320px;
   height: 320px;
   padding: 20px;
-  border: 20px solid black;
+  border: 10px solid black;
+  border-radius: 10px;
   margin: 0;
 }  
 
-.bruh{
-  color: black;
+.flex-box{
+  display: flex;
 }

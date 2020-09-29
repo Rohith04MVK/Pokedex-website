@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html style="background-color: chocolate;">
-<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"
-/>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css')}}" />
 <link rel="shortcut icon" href="{{ url_for('static', filename='pokecon.ico') }}">
 
 <head>
@@ -11,9 +10,16 @@
 <body class="container">
 
 
-    <h1 class="bruh">{{ Slot_number }}, {{ Hidden }}, {{ Type_name }}, {{ Species_name }}, {{ Form_name }}, {{ Slot }}, {{ Ability}}
+    <h1>{{ Slot_number }}, {{ Hidden }}, {{ Type_name }}, {{ Species_name }}, {{ Form_name }}, {{ Slot }},
+        {{ Ability}}
         &#128516;</h1>
-    <div style="text-align: center;" class="box">Slot Number: {{ Slot_number }}</div>
+    <div class="flex-box">
+        <ul>
+            <li>Ablility: {{ Ability }} </li>
+            <li>Slot: {{ Slot }}</li>
+            <li>Hidden: {{ Hidden }}</li>
+        </ul>
+    </div>
 </body>
 
 </html>
