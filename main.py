@@ -9,7 +9,7 @@ import requests
 
 def get_stats():
     r = requests.get(
-        f"https://pokeapi.co/api/v2/pokemon/{pokemon_name}").json()
+        f"https://pokeapi.co/api/v2/pokemon/{pokemon_name.lower()}").json()
 
     # abilities
     abilities = r["abilities"]
