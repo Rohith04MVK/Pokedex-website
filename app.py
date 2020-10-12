@@ -67,7 +67,17 @@ def index():
 def info():
     pok = pokemon_name
     Slot_number, Hidden, Type_name, Species_name, Form_name, Slot, Ability = get_stats()
-    return render_template("info.html", Slot_number=Slot_number, pok=pok, Hidden=Hidden, Type_name=Type_name, Species_name=Species_name, Form_name=Form_name, Slot=Slot, Ability=Ability)
+    return render_template(
+        "info.html",
+        Slot_number=Slot_number,
+        pok=pok,
+        Hidden=Hidden,
+        Type_name=Type_name,
+        Species_name=Species_name,
+        Form_name=Form_name,
+        Slot=Slot,
+        Ability=Ability
+    )
 
 
 if __name__ == "__main__":
