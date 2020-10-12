@@ -18,4 +18,4 @@ pipenv sync
 pipenv run start
 ```
 
-And you're good to go, Just visit 127.0.0.1:500 ;)
+And you're good to go, Just visit 127.0.0.1:5000 ;)
