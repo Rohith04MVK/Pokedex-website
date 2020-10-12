@@ -75,3 +75,7 @@ body, .jumbotron {
   display: flex;
   align-items: center;
 }
+
+.c-1 {
+  margin-right: 50px;
+}
