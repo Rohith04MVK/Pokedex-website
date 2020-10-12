@@ -1,46 +1,65 @@
-.center {
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: auto;
-  }
-.left{
-    display: block;
-    margin-left: 1cm;
-    margin-right: 4cm;
-    size: 4cm;
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+html{
+  background-image: linear-gradient(to bottom right, #00FFFF,  #00008B);
+  font-family: 'Varela Round', sans-serif, monospace;
 }
+
+#form-style {
+  align-items: center;
+  justify-content: center;
+  margin-left: 580px;
+  margin-top: 100px;
+  align-content: center;
+}
+
+.center {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+
+.left{
+  display: block;
+  margin-left: 1cm;
+  margin-right: 2cm;
+  size: 3cm;
+  margin-top: 0;
+}
+
 .right{
-    position: relative;
-    display: block;
-    margin-bottom: 2cm;
-    margin-bottom: 4cm;
-    margin-right: 1cm;
+  position: relative;
+  display: block;
+  margin-bottom: 2cm;
+  margin-bottom: 4cm;
+  margin-right: 1cm;
 }
 
 .topright{
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    font-size: 18px;
-  }
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  font-size: 18px;
+}
   
 
 .ani_button1{
-    border-radius: 4px;
-    background: linear-gradient(to right, #67b26b, #4ca2cb) !important;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 22px;
-    padding: 20px;
-    width: 200px;
-    transition: all 0.4s;
-    cursor: pointer;
-    margin: 5px;
-  }
+  border-radius: 8px;
+  background: linear-gradient(to right, #67b26b, #4ca2cb) !important;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 20px;
+  width: 160px;
+  transition: all 0.4s;
+  cursor: pointer;
+  margin: 3px;
+}
+
 .container {
     position: relative;
   }
@@ -48,7 +67,6 @@
 .box {
   background-image: linear-gradient(to bottom right, purple, blue);
   font-size: 40px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   width: 320px;
   height: 320px;
   padding: 20px;
