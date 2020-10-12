@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
-body {
+body, .jumbotron {
   background: linear-gradient(to bottom right, #00FFFF,  #00008B) !important;
   font-family: 'Varela Round', sans-serif, monospace;
 }
@@ -63,18 +63,15 @@ body {
 .container {
     position: relative;
   }
-  
-.box {
-  background-image: linear-gradient(to bottom right, purple, blue);
-  font-size: 40px;
-  width: 320px;
-  height: 320px;
-  padding: 20px;
-  border: 10px solid black;
-  border-radius: 10px;
-  margin: 0;
-}  
 
 .flex-box{
   display: flex;
+}
+
+.vertical-center {
+  min-height: 95%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 95vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
 }
