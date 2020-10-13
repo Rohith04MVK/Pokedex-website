@@ -10,9 +10,6 @@ def get_stats():
     r = requests.get(
         f"https://pokeapi.co/api/v2/pokemon/{pokemon_name.lower()}").json()
 
-    if r.lower() == "not found":
-        return None
-
     # abilities
     abilities = r["abilities"]
 
