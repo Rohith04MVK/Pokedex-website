@@ -6,9 +6,23 @@ from wtforms.validators import InputRequired
 import requests
 
 
-def get_stats():
+app = Flask(__name__)
+app.config['SECRET_KEY'] = '2fex6bw*mt03ocad82q1loylh68#kik7!'
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
+
+
+class pokemon_form(FlaskForm):
+    pokemon = StringField(
+        'Pokemon',
+        validators=[InputRequired()]
+    )
+
+
+def get_stats(pokemon_name):
     r = requests.get(
-        f"https://pokeapi.co/api/v2/pokemon/{pokemon_name.lower()}").json()
+        f"https://pokeapi.co/api/v2/pokemon/{pokemon_name.lower()}"
+    ).json()
 
     # abilities
     abilities = r["abilities"]
@@ -40,34 +54,24 @@ def get_stats():
     return Slot_number, Hidden, Type_name, Species_name, Form_name, Slot, Ability
 
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = '2fex6bw*mt03ocad82q1loylh68#kik7!'
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-
-
-class pokemon_form(FlaskForm):
-    pokemon = StringField('Pokemon',
-                          validators=[InputRequired()])
-
-
 @app.route("/", methods=["GET", "POST"])
 def index():
-    global pokemon_name
     form = pokemon_form()
     pokemon_name = form.pokemon.data
+
     if form.validate_on_submit():
-        return redirect(url_for('info'))
+        return redirect(url_for('info', pokemon=pokemon_name))
+
     return render_template("index.html", form=form)
 
 
-@app.route("/info", methods=["GET", "POST"])
-def info():
-    pok = pokemon_name
-    Slot_number, Hidden, Type_name, Species_name, Form_name, Slot, Ability = get_stats()
+@app.route("/info/<pokemon>", methods=["GET", "POST"])
+def info(pokemon):
+    Slot_number, Hidden, Type_name, Species_name, Form_name, Slot, Ability = get_stats(pokemon)
     return render_template(
         "info.html",
         Slot_number=Slot_number,
-        pok=pok,
+        pok=pokemon,
         Hidden=Hidden,
         Type_name=Type_name,
         Species_name=Species_name,
