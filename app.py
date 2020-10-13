@@ -18,7 +18,7 @@ class pokemon_form(FlaskForm):
     )
 
 
-def get_stats():
+def get_stats(pokemon_name):
     r = requests.get(
         f"https://pokeapi.co/api/v2/pokemon/{pokemon_name.lower()}"
     ).json()
@@ -55,24 +55,22 @@ def get_stats():
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    global pokemon_name
     form = pokemon_form()
     pokemon_name = form.pokemon.data
 
     if form.validate_on_submit():
-        return redirect(url_for('info'))
+        return redirect(url_for('info', pokemon=pokemon_name))
 
     return render_template("index.html", form=form)
 
 
-@app.route("/info", methods=["GET", "POST"])
-def info():
-    pok = pokemon_name
-    Slot_number, Hidden, Type_name, Species_name, Form_name, Slot, Ability = get_stats()
+@app.route("/info/<pokemon>", methods=["GET", "POST"])
+def info(pokemon):
+    Slot_number, Hidden, Type_name, Species_name, Form_name, Slot, Ability = get_stats(pokemon)
     return render_template(
         "info.html",
         Slot_number=Slot_number,
-        pok=pok,
+        pok=pokemon,
         Hidden=Hidden,
         Type_name=Type_name,
         Species_name=Species_name,
