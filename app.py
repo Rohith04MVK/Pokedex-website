@@ -1,15 +1,17 @@
 from flask import Flask, url_for, redirect
 from flask.templating import render_template
 from flask_wtf import FlaskForm
-from flask_wtf import form
-from wtforms import StringField, IntegerField
-from wtforms.validators import DataRequired, ValidationError, InputRequired
+from wtforms import StringField
+from wtforms.validators import InputRequired
 import requests
 
 
 def get_stats():
     r = requests.get(
         f"https://pokeapi.co/api/v2/pokemon/{pokemon_name.lower()}").json()
+
+    if r.lower() == "not found":
+        return None
 
     # abilities
     abilities = r["abilities"]
@@ -65,7 +67,17 @@ def index():
 def info():
     pok = pokemon_name
     Slot_number, Hidden, Type_name, Species_name, Form_name, Slot, Ability = get_stats()
-    return render_template("info.html", Slot_number=Slot_number, pok=pok, Hidden=Hidden, Type_name=Type_name, Species_name=Species_name, Form_name=Form_name, Slot=Slot, Ability=Ability)
+    return render_template(
+        "info.html",
+        Slot_number=Slot_number,
+        pok=pok,
+        Hidden=Hidden,
+        Type_name=Type_name,
+        Species_name=Species_name,
+        Form_name=Form_name,
+        Slot=Slot,
+        Ability=Ability
+    )
 
 
 if __name__ == "__main__":

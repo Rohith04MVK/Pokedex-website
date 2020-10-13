@@ -1,25 +1,52 @@
-<html lang="en" style="background-image: linear-gradient(to bottom right, #00008B, black);">
-<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css')}}" />
-<link rel="shortcut icon" href="{{ url_for('static', filename='pokecon.ico') }}">
+<html lang="en">
+    <head>
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css')}}" />
+        <link rel="shortcut icon" href="{{ url_for('static', filename='pokecon.ico') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-<head>
-    <title>Pokedex</title>
-</head>
-<div style="text-align: center;"><img src="static/images/Pokedex_logo.png" alt="Logo" /></div>
-<form style="align-items: center;" method="POST" action="{{ url_for('index') }}">
-    {{ form.hidden_tag() }}
-    {{ form.csrf_token }}
-    <h1 style="color: ye;">{{ form.pokemon.label }}</h1>
-    <h1>{{ form.pokemon }}</h1>
-    <ul style="color: red;">
-        {% for error in form.pokemon.errors %}
-        <h2><b>{{error}}</b></h2>
-        {% endfor %}
-    </ul>
-    <input class="ani_button1" style="text-align: center;" type="submit" value='Submit'>
-</form>
-</form>
-<div><img src="static/images/pikachu.png" alt="pika" class="left" width="500" height="350" /></div>
-<div class="topright"><img src="static/images/Ash.png" alt="ash" class="topright" /></div>
 
+        <title>Pokedex</title>
+    </head>
+    <body>
+        <div style="text-align: center;">
+            <img src="static/images/Pokedex_logo.png" alt="Logo" />
+        </div>
+        <form id="form-style" method="POST" action="{{ url_for('index') }}">
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
+
+            <h1 style="color: yellow;">
+                Pokemon
+            </h1>
+            
+            <h1>
+                {{ form.pokemon }}
+            </h1>
+
+            <ul style="color: red;">
+                {% for error in form.pokemon.errors %}
+                    <h2>
+                        <b>{{error}}</b>
+                    </h2>
+                {% endfor %}
+            </ul>
+            <input class="ani_button1" style="text-align: center;" type="submit" value='Submit'>
+        </form>
+
+        <div>
+            <img src="static/images/pikachu.png" alt="pika" class="left" width="500" height="350" />
+        </div>
+        <div class="topright">
+            <img src="static/images/Ash.png" alt="ash" class="topright" />
+        </div>
+
+        <script>
+            let form_fields = document.getElementsByTagName('input')
+            form_fields[1].className = 'search-field';
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
 </html>
